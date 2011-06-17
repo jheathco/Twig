@@ -258,7 +258,7 @@ abstract class Twig_Template implements Twig_TemplateInterface
 
         // object property
         if (Twig_TemplateInterface::METHOD_CALL !== $type) {
-            if (isset(self::$cache[$class]['properties'][$item]) || isset($object->$item)) {
+            if (isset(self::$cache[$class]['properties'][$item]) || isset($object->$item) || isset(self::$cache[$class]['methods']['__get'])) {
                 if ($this->env->hasExtension('sandbox')) {
                     $this->env->getExtension('sandbox')->checkPropertyAllowed($object, $item);
                 }
