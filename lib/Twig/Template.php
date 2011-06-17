@@ -306,6 +306,7 @@ abstract class Twig_Template implements Twig_TemplateInterface
         if (Twig_TemplateInterface::METHOD_CALL !== $type) {
             if (isset(self::$cache[$class]['properties'][$item])
                 || isset($object->$item) || array_key_exists($item, $object)
+		|| isset(self::$cache[$class]['methods']['__get'])
             ) {
                 if ($isDefinedTest) {
                     return true;
